@@ -13,14 +13,20 @@ public class User {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+    @Column(name = "age")
+    private int age;
+    @Column(name = "sex")
+    private String sex;
 
     public User() {
     }
 
-    public User(Long id, String firstName, String lastName) {
+    public User(Long id, String firstName, String lastName, int age, String sex) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.age = age;
+        this.sex = sex;
     }
 
     public Long getId() {
@@ -47,12 +53,29 @@ public class User {
         this.lastName = lastName;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName);
+        return Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName)
+                && Objects.equals(age, user.age) && Objects.equals(sex, user.sex);
     }
 
     @Override
